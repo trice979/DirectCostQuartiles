@@ -37,7 +37,7 @@ SELECT			DISTINCT
 				PERCENTILE_DISC(1) WITHIN GROUP (ORDER BY enc.TotalDirectCosts) OVER (PARTITION BY enc.MSDRG) Maximum ,
 				CAST(STDEV(enc.TotalDirectCosts) OVER (PARTITION BY enc.MSDRG) AS DECIMAL(10,2)) StandardDeviation 
 				
-FROM			UMMC_SYSTEM..T_IP_ENCOUNTER enc
+FROM			T_IP_ENCOUNTER enc
 INNER JOIN		DSS..DATE dt
 					on enc.DischargeDate = dt.date
 LEFT JOIN		DRGCounts
